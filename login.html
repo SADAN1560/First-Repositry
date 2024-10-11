@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        /* Hide the container initially */
+        .container {
+            display: none;
+        }
+
+        .img {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .img img {
+            width: 350px;
+            margin: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .img {
+                justify-content: center;
+            }
+
+            .img img {
+                width: 70%;
+                height: 100vh;
+                margin: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .img img {
+                width: 100%;
+                margin: 2px 0;
+            }
+        }
+
+        /* Initially hide the login form */
+        #loginForm {
+            width: 100%;
+            height: 97vh;
+            display: none;
+            align-items: center;
+        }
+        .login{
+            border: 1px solid white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login input{
+            height: 6vh;
+            border-radius: 20px;border: none;
+        }
+        .login button{
+            background-color: pink;
+            height: 7vh;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            width: 20vh;
+        }
+        body{
+            background-color: black;
+            color: white;
+        }
+        .button{
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: none;
+        }
+        .contain{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Container to be shown after successful login -->
+    <div class="container">
+        <center>
+            <h2>Welcome Prince ki pyari si Princes</h2>
+        </center>
+        <div class="img">
+            <img src="img/my-img.jpg" alt="">
+            <img src="img/1713282749479.jpg" alt="">
+            <img src="img/1713283132372.jpg" alt="">
+            <img src="img/1713353728512.jpg" alt="">
+            <img src="img/WhatsApp Image 2024-10-10 at 20.03.35 (1).jpeg" alt="">
+            <img src="img/WhatsApp Image 2024-10-10 at 20.03.35.jpeg" alt="">
+            <img src="img/WhatsApp Image 2024-10-10 at 20.03.36 (1).jpeg" alt="">
+            <img src="img/WhatsApp Image 2024-10-10 at 20.03.36.jpeg" alt="">
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm">
+        <div class="login">
+            <input type="text" id="Email" placeholder="Email">
+            <input type="password" id="Password" placeholder="Password" style="margin-top: 20px;">
+            <button type="button" id="Submit" style="margin-top: 20px;">Submit</button>
+        </div>
+    </form>
+
+    <!-- Initial button to show the login form -->
+    <div class="contain">
+        <button class="button" >J</button>
+        <button class="button" >A</button>
+        <button class="button" >N</button>
+        <button class="button" >I</button>
+        <button class="button" >I</button>
+        <button class="button" >I</button>
+        <button class="button" >I</button>
+        <button class="button" >K</button>
+        <button class="button"  id="click">I</button>
+        <button class="button" >J</button>
+        <button class="button" >A</button>
+        <button class="button" >N</button>
+
+    </div>
+
+    <script>
+        // Show the login form when the "hello" button is clicked
+        document.getElementById("click").addEventListener("click", function () {
+            document.querySelector("#loginForm").style.display = "block";
+            document.querySelector(".contain").style.display = "none"; // Hide the "hello" button
+        });
+
+        // Submit login form and validate credentials
+        document.getElementById("Submit").addEventListener("click", function () {
+            const email = document.getElementById("Email").value;
+            const password = document.getElementById("Password").value;
+
+            // Check credentials
+            if (email === "1122" && password === "121212") {
+                document.querySelector(".container").style.display = "block"; // Show the container on success
+                document.getElementById("loginForm").style.display = "none"; // Hide the login form
+            } else {
+                alert("Invalid login credentials. Please try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>
